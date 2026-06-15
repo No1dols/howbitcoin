@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>HowBitcoin</title>
+  <title>HowBitcoin — Bitcoin jednostavno i učinkovito</title>
 
   <style>
     * {
@@ -12,92 +12,220 @@
       box-sizing: border-box;
     }
 
+    :root {
+      --bg: #06110f;
+      --card: #0d1d1a;
+      --orange: #f7931a;
+      --aqua: #64dbe8;
+      --white: #f8f3e8;
+      --muted: #b7c8c2;
+      --line: rgba(255,255,255,0.09);
+    }
+
     body {
-      background: #0b0b0b;
-      color: #f5f5f5;
-      font-family: Arial, Helvetica, sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(100, 219, 232, 0.18), transparent 32%),
+        radial-gradient(circle at top right, rgba(247, 147, 26, 0.20), transparent 30%),
+        var(--bg);
+      color: var(--white);
+      font-family: Inter, Arial, sans-serif;
       line-height: 1.7;
     }
 
     .container {
       width: 90%;
-      max-width: 900px;
+      max-width: 1080px;
       margin: auto;
     }
 
-    header {
-      padding: 120px 0 80px;
-      text-align: center;
-      border-bottom: 1px solid #222;
+    nav {
+      padding: 26px 0;
+      border-bottom: 1px solid var(--line);
     }
 
-    header h1 {
-      font-size: 4rem;
-      margin-bottom: 20px;
+    .nav-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
 
-    header p {
-      font-size: 1.3rem;
-      color: #bbb;
-      max-width: 700px;
-      margin: auto;
+    .logo {
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      font-size: 1.4rem;
     }
 
-    .button {
-      display: inline-block;
-      margin-top: 40px;
-      padding: 15px 30px;
-      background: #f7931a;
-      color: black;
+    .logo span {
+      color: var(--orange);
+    }
+
+    nav a {
+      color: var(--muted);
       text-decoration: none;
-      font-weight: bold;
-      border-radius: 6px;
+      margin-left: 24px;
+      font-size: 0.95rem;
+    }
+
+    nav a:hover {
+      color: var(--aqua);
+    }
+
+    .hero {
+      padding: 120px 0 100px;
+      text-align: center;
+    }
+
+    .tag {
+      display: inline-block;
+      padding: 8px 14px;
+      border: 1px solid rgba(100, 219, 232, 0.35);
+      color: var(--aqua);
+      border-radius: 999px;
+      font-size: 0.9rem;
+      margin-bottom: 28px;
+      background: rgba(100, 219, 232, 0.06);
+    }
+
+    h1 {
+      font-size: clamp(3rem, 8vw, 6.5rem);
+      line-height: 0.95;
+      letter-spacing: -0.08em;
+      margin-bottom: 28px;
+    }
+
+    h1 span {
+      color: var(--orange);
+    }
+
+    .hero p {
+      max-width: 720px;
+      margin: auto;
+      color: var(--muted);
+      font-size: 1.2rem;
+    }
+
+    .buttons {
+      margin-top: 42px;
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 15px 28px;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 700;
+      display: inline-block;
+    }
+
+    .btn-primary {
+      background: var(--orange);
+      color: #101010;
+    }
+
+    .btn-secondary {
+      border: 1px solid var(--aqua);
+      color: var(--aqua);
     }
 
     section {
-      padding: 80px 0;
-      border-bottom: 1px solid #1a1a1a;
+      padding: 85px 0;
+      border-top: 1px solid var(--line);
     }
 
     h2 {
-      font-size: 2rem;
-      margin-bottom: 30px;
+      font-size: clamp(2rem, 4vw, 3rem);
+      letter-spacing: -0.05em;
+      margin-bottom: 26px;
+    }
+
+    h3 {
+      font-size: 1.35rem;
+      margin-bottom: 14px;
     }
 
     p {
-      margin-bottom: 20px;
-      color: #d0d0d0;
+      color: var(--muted);
+      margin-bottom: 18px;
     }
 
-    .service {
-      background: #121212;
-      padding: 30px;
-      margin-bottom: 30px;
-      border-radius: 12px;
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 26px;
+      margin-top: 36px;
     }
 
-    .service h3 {
-      margin-bottom: 15px;
-      color: #f7931a;
+    .card {
+      background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.015));
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 32px;
+      box-shadow: 0 25px 80px rgba(0,0,0,0.22);
+    }
+
+    .card strong {
+      color: var(--white);
+    }
+
+    .price {
+      color: var(--orange);
+      font-size: 1.8rem;
+      font-weight: 800;
+      margin: 12px 0 18px;
+    }
+
+    .list {
+      margin-top: 18px;
+      color: var(--muted);
+    }
+
+    .list div {
+      padding: 9px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .highlight {
+      color: var(--aqua);
+    }
+
+    .orange {
+      color: var(--orange);
+    }
+
+    .wide {
+      max-width: 760px;
     }
 
     footer {
+      padding: 55px 0;
       text-align: center;
-      padding: 60px 20px;
-      color: #777;
+      color: #7e8d88;
+      border-top: 1px solid var(--line);
     }
 
-    @media(max-width: 700px) {
-      header h1 {
-        font-size: 2.5rem;
+    @media (max-width: 760px) {
+      .nav-inner {
+        flex-direction: column;
+        gap: 18px;
       }
 
-      header p {
-        font-size: 1rem;
+      nav a {
+        margin: 0 8px;
       }
 
-      h2 {
-        font-size: 1.5rem;
+      .hero {
+        padding: 90px 0 75px;
+      }
+
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      .card {
+        padding: 26px;
       }
     }
   </style>
@@ -105,179 +233,182 @@
 
 <body>
 
-  <header>
-    <div class="container">
-      <h1>HowBitcoin</h1>
-
-      <p>
-        Bitcoin — jednostavno i učinkovito.
-        Nauči kako kupiti, koristiti i sigurno čuvati Bitcoin.
-      </p>
-
-      <a href="#services" class="button">
-        Pogledaj usluge
-      </a>
-    </div>
-  </header>
-
-  <section>
-    <div class="container">
-
-      <h2>Bitcoin - Simple & To The Point</h2>
-
-      <p>
-        Pomalo su već svi čuli za Bitcoin. Moćan novac 21. stoljeća.
-        Zapravo, najmoćniji novac koji se ikad pojavio u opticaju.
-      </p>
-
-      <p>
-        Bitcoin je od 03.01.2009. do danas ostvario nevjerojatnu
-        dugoročnu aprecijaciju i postao globalni monetarni fenomen.
-      </p>
-
-      <p>
-        Naš cilj nije obećavati brzo bogaćenje, već pomoći ljudima
-        razumjeti kako koristiti Bitcoin na siguran i jednostavan način.
-      </p>
-
-      <p>
-        Fokus je na praktičnom znanju:
-        wallet setup, self custody, slanje i primanje bitcoina,
-        sigurnost i razumijevanje osnovnih alata.
-      </p>
-
-    </div>
-  </section>
-
-  <section>
-    <div class="container">
-
-      <h2>How Bitcoin, not why Bitcoin</h2>
-
-      <p>
-        Već postoji mnogo kvalitetnih materijala koji objašnjavaju
-        zašto je Bitcoin važan.
-      </p>
-
-      <p>
-        Naš fokus je tehnička strana:
-        kako otvoriti wallet,
-        kako kupiti bitcoin,
-        kako ga sigurno čuvati
-        i kako izbjeći početničke greške.
-      </p>
-
-      <p>
-        Vodimo te kroz cijeli onboarding proces putem video poziva
-        i mail podrške.
-      </p>
-
-    </div>
-  </section>
-
-  <section id="services">
-    <div class="container">
-
-      <h2>Naše usluge</h2>
-
-      <div class="service">
-        <h3>Get Off Zero — 60€</h3>
-
-        <p>
-          Jednokratna sesija u trajanju od 60 minuta
-          + tjedan dana mail asistencije.
-        </p>
-
-        <p>
-          Naučit ćeš:
-        </p>
-
-        <p>
-          • kako kreirati wallet<br>
-          • kako poslati i primiti bitcoin<br>
-          • razliku između lightning i onchain transakcija<br>
-          • kako ponovno aktivirati wallet<br>
-          • kako napraviti svoju prvu bitcoin transakciju
-        </p>
-
+  <nav>
+    <div class="container nav-inner">
+      <div class="logo">How<span>Bitcoin</span></div>
+      <div>
+        <a href="#about">O projektu</a>
+        <a href="#services">Usluge</a>
+        <a href="#contact">Kontakt</a>
       </div>
-
-      <div class="service">
-        <h3>Not A Beginner Anymore — 160€</h3>
-
-        <p>
-          Paket od 3 sesije + mjesec dana mail podrške.
-        </p>
-
-        <p>
-          Uključuje:
-        </p>
-
-        <p>
-          • custodial i non-custodial wallet setup<br>
-          • Muun wallet<br>
-          • sigurnost i self custody<br>
-          • mempool.space i tajmiranje transakcija<br>
-          • gdje kupiti bitcoin<br>
-          • hardware wallet uvod<br>
-          • dodatne edukacijske materijale
-        </p>
-
-      </div>
-
-      <div class="service">
-        <h3>Bitcoin Expert</h3>
-
-        <p>
-          Napredna edukacija:
-        </p>
-
-        <p>
-          • bitcoin node setup<br>
-          • hardware wallet integracija<br>
-          • seed phrase sigurnost<br>
-          • napredna tehnička konfiguracija
-        </p>
-
-      </div>
-
-      <div class="service">
-        <h3>Life On A Full Bitcoin Standard</h3>
-
-        <p>
-          Individualno mentorstvo za ljude koji žele ozbiljnije
-          implementirati Bitcoin u svoj financijski život.
-        </p>
-
-        <p>
-          Budgetiranje, izlazak iz duga i dugoročna strategija.
-        </p>
-
-      </div>
-
     </div>
-  </section>
+  </nav>
 
-  <section>
-    <div class="container">
+  <main>
 
-      <h2>Kontakt</h2>
+    <section class="hero">
+      <div class="container">
+        <div class="tag">Bitcoin — simple & to the point</div>
 
-      <p>
-        Za upite i rezervaciju termina:
-      </p>
+        <h1>Bitcoin.<br><span>Jednostavno.</span></h1>
 
-      <p>
-        yourmail@email.com
-      </p>
+        <p>
+          Nauči kako kupiti, koristiti i sigurno čuvati bitcoin.
+          Bez nepotrebne buke, bez obećanja brzog bogaćenja — samo praktično znanje
+          za tvoj prvi korak prema bitcoin standardu.
+        </p>
 
-    </div>
-  </section>
+        <div class="buttons">
+          <a href="#services" class="btn btn-primary">Pogledaj programe</a>
+          <a href="#contact" class="btn btn-secondary">Zatraži termin</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container wide">
+        <h2>How Bitcoin, <span class="orange">not why Bitcoin.</span></h2>
+
+        <p>
+          Već postoji mnogo materijala koji objašnjavaju zašto je bitcoin važan.
+          Naš fokus je drugačiji: kako ga koristiti u praksi.
+        </p>
+
+        <p>
+          Pokazujemo ti kako otvoriti bitcoin novčanik, kako poslati i primiti bitcoin,
+          kako razlikovati lightning i on-chain transakcije, gdje kupiti bitcoin
+          i kako izbjeći početničke greške.
+        </p>
+
+        <p>
+          Vodimo te kroz proces putem video poziva, odgovaramo na pitanja i dajemo
+          mail podršku nakon sesije.
+        </p>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <h2>Što ćeš naučiti?</h2>
+
+        <div class="grid">
+          <div class="card">
+            <h3 class="highlight">Wallet setup</h3>
+            <p>Kreiranje walleta, backup, brisanje i ponovno aktiviranje novčanika.</p>
+          </div>
+
+          <div class="card">
+            <h3 class="highlight">Slanje i primanje</h3>
+            <p>Praktično slanje i primanje bitcoina kroz male transakcije.</p>
+          </div>
+
+          <div class="card">
+            <h3 class="highlight">Self custody</h3>
+            <p>Razumijevanje razlike između custodial i non-custodial novčanika.</p>
+          </div>
+
+          <div class="card">
+            <h3 class="highlight">Sigurnost</h3>
+            <p>Seed phrase, hardware walleti i osnovna pravila sigurnog čuvanja bitcoina.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="services">
+      <div class="container">
+        <h2>Programi</h2>
+
+        <div class="grid">
+
+          <div class="card">
+            <h3>Get Off Zero</h3>
+            <div class="price">60€</div>
+            <p>
+              Jednokratna sesija od 60 minuta + tjedan dana mail asistencije.
+            </p>
+
+            <div class="list">
+              <div>15 min teorije i pitanja</div>
+              <div>Wallet of Satoshi setup</div>
+              <div>Lightning transakcije</div>
+              <div>Prva mala bitcoin transakcija</div>
+              <div>Slanje, primanje i ponovno aktiviranje walleta</div>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3>Not A Beginner Anymore</h3>
+            <div class="price">160€</div>
+            <p>
+              Paket od 3 sesije + mjesec dana mail podrške.
+            </p>
+
+            <div class="list">
+              <div>Custodial i non-custodial wallet</div>
+              <div>Muun wallet setup</div>
+              <div>Self custody osnove</div>
+              <div>Mempool.space i tajmiranje transakcija</div>
+              <div>Gdje kupiti bitcoin</div>
+              <div>Uvod u hardware wallete</div>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3>Bitcoin Expert</h3>
+            <p>
+              Napredna edukacija za one koji žele ići dublje u tehničku stranu bitcoina.
+            </p>
+
+            <div class="list">
+              <div>Bitcoin node setup</div>
+              <div>Hardware wallet integracija</div>
+              <div>Seed phrase sigurnost</div>
+              <div>Napredna tehnička konfiguracija</div>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3>Life On A Full Bitcoin Standard</h3>
+            <p>
+              Individualno mentorstvo za ljude koji žele ozbiljnije implementirati
+              bitcoin u svoj financijski život.
+            </p>
+
+            <div class="list">
+              <div>Budgetiranje</div>
+              <div>Get off debt pristup</div>
+              <div>Dugoročna bitcoin strategija</div>
+              <div>Cijena na upit</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container wide">
+        <h2>Spreman za prvi korak?</h2>
+
+        <p>
+          Za rezervaciju termina ili dodatna pitanja pošalji upit.
+        </p>
+
+        <p>
+          <strong>Email:</strong> tvoj-email@email.com
+        </p>
+
+        <a href="mailto:tvoj-email@email.com" class="btn btn-primary">
+          Pošalji upit
+        </a>
+      </div>
+    </section>
+
+  </main>
 
   <footer>
-    <p>
-      HowBitcoin © 2026
-    </p>
+    HowBitcoin © 2026 — Bitcoin jednostavno i učinkovito.
   </footer>
 
 </body>
